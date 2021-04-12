@@ -1,0 +1,38 @@
+{
+  "application.js": "/packs/js/application-b43fa54005da8e229d8c.js",
+  "application.js.map": "/packs/js/application-b43fa54005da8e229d8c.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-b43fa54005da8e229d8c.js"
+      ],
+      "js.map": [
+        "/packs/js/application-b43fa54005da8e229d8c.js.map"
+      ]
+    },
+    "hello_react": {
+      "js": [
+        "/packs/js/hello_react-2848bb1f825fae1dbb0d.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_react-2848bb1f825fae1dbb0d.js.map"
+      ]
+    },
+    "index": {
+      "js": [
+        "/packs/js/index-61d5b6925e202166320f.js"
+      ],
+      "js.map": [
+        "/packs/js/index-61d5b6925e202166320f.js.map"
+      ]
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react-2848bb1f825fae1dbb0d.js",
+  "hello_react.js.map": "/packs/js/hello_react-2848bb1f825fae1dbb0d.js.map",
+  "index.js": "/packs/js/index-61d5b6925e202166320f.js",
+  "index.js.map": "/packs/js/index-61d5b6925e202166320f.js.map",
+  "media/icons/bathtub.png": "/packs/media/icons/bathtub-a72eeb8f.png",
+  "media/icons/bed.png": "/packs/media/icons/bed-c42343a1.png",
+  "media/icons/right.png": "/packs/media/icons/right-10274485.png",
+  "media/images/kasaz.png": "/packs/media/images/kasaz-b81efc36.png"
+}
