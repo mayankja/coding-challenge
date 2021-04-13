@@ -2,13 +2,16 @@ import React from 'react';
 import Card from '../component/Card'
 import Header from '../component/Header'
 import {getData} from '../sevices/FetchServices'
+import LeftSidePanel  from '../component/LeftSidePanel'
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 function Appartment(){
     const [get,set]= React.useState([])
     const [Fdata,setFData]= React.useState([])
     let [page,setPage]= React.useState(1)
     const [loader,setLoader]= React.useState(false)
+    const [openLeftPanel,setLeftPanel]= React.useState(false)
 
     const fetchData = async(pageNo)=>{
         console.log(pageNo)
@@ -39,13 +42,27 @@ function Appartment(){
         }
     }
 
+    const handleLeftPanel = ()=>{
+        if(openLeftPanel){
+            setLeftPanel(false)
+        }
+        else
+        {
+            setLeftPanel(true)
+        }
+    }
 
     React.useEffect(() => {
         fetchData()
       }, [get]);
     return(
         <>
-        <Header set={set}/>
+        <Header set={set} changevalue={handleLeftPanel}/>
+        <div style={{display:'flex'}}>
+        {openLeftPanel && <div className="leftSidePanel">
+            <LeftSidePanel/>
+        </div>}
+        <div className="rightSidePanel">
         <div style={{paddingTop:'100px'}} className="table-wrap" onScroll={loadMoreData}>
             {Object.values(Fdata).map((item)=>{
                 return(
@@ -54,6 +71,8 @@ function Appartment(){
             })}
         </div>
         <div style={{justifyContent:'center', display:'flex'}}>{loader &&<CircularProgress />}</div>
+        </div>
+        </div>
         </>
     )
 }

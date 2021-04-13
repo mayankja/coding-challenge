@@ -1,9 +1,9 @@
-import react from 'react';
+import React from 'react';
 
 function LeftSidePanel(props) {
 
     return(
-        <div>
+        <div style={{marginTop:'100px'}}>
             <div>
                 <p>HOME</p>
             </div>

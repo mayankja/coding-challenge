@@ -20,17 +20,17 @@
     },
     "index": {
       "js": [
-        "/packs/js/index-61d5b6925e202166320f.js"
+        "/packs/js/index-cf0b33687b47bf530238.js"
       ],
       "js.map": [
-        "/packs/js/index-61d5b6925e202166320f.js.map"
+        "/packs/js/index-cf0b33687b47bf530238.js.map"
       ]
     }
   },
   "hello_react.js": "/packs/js/hello_react-2848bb1f825fae1dbb0d.js",
   "hello_react.js.map": "/packs/js/hello_react-2848bb1f825fae1dbb0d.js.map",
-  "index.js": "/packs/js/index-61d5b6925e202166320f.js",
-  "index.js.map": "/packs/js/index-61d5b6925e202166320f.js.map",
+  "index.js": "/packs/js/index-cf0b33687b47bf530238.js",
+  "index.js.map": "/packs/js/index-cf0b33687b47bf530238.js.map",
   "media/icons/bathtub.png": "/packs/media/icons/bathtub-a72eeb8f.png",
   "media/icons/bed.png": "/packs/media/icons/bed-c42343a1.png",
   "media/icons/right.png": "/packs/media/icons/right-10274485.png",

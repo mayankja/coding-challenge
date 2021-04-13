@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
@@ -9,6 +9,16 @@ const BootstrapInput = withStyles((theme) => ({
       'label + &': {
         marginTop: theme.spacing(3),
       },
+    },
+
+    todo: {
+      border:'1px solid',
+      padding:'15px 25px',
+      borderColor:'darkgrey',
+      color:'black'
+    },
+    selected:{
+      background:'green'
     },
     input: {
       borderRadius: 4,
@@ -43,6 +53,7 @@ const BootstrapInput = withStyles((theme) => ({
     margin: {
       margin: theme.spacing(1),
     },
+
   }));
 
 function Filter(props) {
@@ -54,6 +65,8 @@ function Filter(props) {
   const [bedrooms, setBedrooms] = React.useState(null);
   const [bathrooms, setBathrooms] = React.useState(null);
   const [page, setPage] = React.useState(1);
+  const bedRoomsArr =[1,2,3,4,5];
+  const bathRoomsArr =[1,2,3,4,5];
 
 
   const handleChange = (event) => {
@@ -88,6 +101,10 @@ function Filter(props) {
   const handleSubmit = async ()=>{
     props.set({minPrice,maxPrice,minRoomSize,maxRoomSize,bedrooms,bathrooms,page})
   }
+
+  useEffect(()=>{
+
+  },[bedrooms,bathrooms])
     return(
         <div style={{display:'flex', justifyContent:'center'}}>
           <div>
@@ -157,8 +174,8 @@ function Filter(props) {
                     <option value="">Max-Size</option>
                     <option value={200}>200</option>
                     <option value={300}>300</option>
+                    <option value={400}>400</option>
                     <option value={500}>500</option>
-                    <option value={1000}>1000</option>
                   </NativeSelect>
                 </div>
               </div>
@@ -166,24 +183,24 @@ function Filter(props) {
               <div style={{display:'flex', justifyContent:'center',color:'black'}}><p>Bedrooms</p></div>
                 <table style={{border:'1px solid', borderSpacing:'0'}}>
                   <tr >
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey', backgroundColor:'#00d467',color:'black'}}>Todos</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={1} onClick={handleclick}>+1</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={2} onClick={handleclick}>+2</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={3} onClick={handleclick}>+3</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={4} onClick={handleclick}>+4</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={5} onClick={handleclick}>+5</td>
+                    <td className="todoSelected">Todos</td>
+                    {bedRoomsArr.map((value)=>{
+                      return(
+                        <td className={bedrooms==value ? "todoSelected": "todo"} data-title={value} onClick={handleclick}>+{value}</td>
+                      )
+                    })}
                   </tr>
                 </table>
                 <div style={{display:'flex', justifyContent:'center',color:'black'}}><p>Bathrooms</p></div>
                 <table style={{border:'1px solid', borderSpacing:'0'}}>
                   <tr >
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey', backgroundColor:'#00d467',color:'black'}}>Todos</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={1} onClick={handleBathroom}>+1</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={2} onClick={handleBathroom}>+2</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={3} onClick={handleBathroom}>+3</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={4} onClick={handleBathroom}>+4</td>
-                    <td style={{border:'1px solid',padding:'15px 25px',borderColor:'darkgrey',color:'black'}} data-title={5} onClick={handleBathroom}>+5</td>
-                  </tr>
+                    <td className="todoSelected">Todos</td>
+                    {bathRoomsArr.map((value)=>{
+                      return(
+                        <td className={bathrooms==value ? "todoSelected": "todo"} data-title={value} onClick={handleBathroom}>+{value}</td>
+                      )
+                    })}
+                    </tr>
                 </table>
               <div style={{margin:'100px 0 30px'}}>
                 <button type="submit" style={{backgroundColor:'#8900a1',width:'100%',padding:'10px 0', color:'white', fontWeight:'bolder',fontSize:'larger'}} onClick={handleSubmit}>Filter</button>

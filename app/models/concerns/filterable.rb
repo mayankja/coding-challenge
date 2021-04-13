@@ -32,7 +32,7 @@ module Filterable
 
     # A list of the param names that can be used for filtering the Apartment list
     def filtering_params(params)
-      params.slice(:bedrooms, :bathrooms, :price, :sqm)
+      params.slice(:bedroom, :bathroom, :price, :sqm)
     end
 
     def page(params)
